@@ -1,0 +1,73 @@
+/* Contenedor principal */
+.token-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 250px;
+    background-color: #fffc86;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Imagen */
+  .token-image img {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Caja de ingreso de token */
+  .token-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Título */
+  .token-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Input de token */
+  .token-input {
+    width: 200px;
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #ff9800;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+    
+  /* Botón */
+  .boton {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 20px;
+    background-color:#ff9800;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .token-btn:hover {
+    background-color: #ff9800;
+  }
+  
+  
