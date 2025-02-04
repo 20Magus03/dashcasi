@@ -71,10 +71,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <button className="hamburger-menu" onClick={toggleSidebar}>
-        ☰
-      </button>
-
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <h1 style={{ color: 'black' }}>Mr. Magus</h1>
         <h2 style={{ color: 'black' }}>Dashboard</h2>

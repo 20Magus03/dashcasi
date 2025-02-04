@@ -1,149 +1,37 @@
-/* 🌟 Estilos Generales */
-.dashboard-container {
-  background-color: #FFCC00; /* Amarillo más vibrante */
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: 'Poppins', sans-serif;
-  text-align: center;
-  padding: 40px;
-  border-radius: 15px;
+  background-color: #ffcc00;
 }
 
-/* 🎯 Títulos */
-.dashboard-container h1 {
-  color: #333;
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 25px;
-}
-
-/* 🟡 Sección de Agregar Proyecto */
-.add-project {
+.dashboard-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.add-project input {
-  width: 100%;
-  max-width: 400px;
-  padding: 14px;
-  border: 2px solid #FFC107;
-  border-radius: 10px;
-  font-size: 18px;
-  color: #333;
-  outline: none;
-  text-align: center;
-  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* ✨ Botón para Agregar Proyecto */
-.btn-add {
-  background: #333;
-  color: #FFCC00;
-  padding: 14px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-.btn-add:hover {
-  background: #FFCC00;
-  color: #333;
+.nav-open {
+  margin-left: 260px;
 }
 
-/* 📊 Resumen de Proyectos Mejorado */
-.projects-summary {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px;
-  gap: 15px;
-}
-
-/* 🔹 Tarjetas de Resumen */
-.summary-card {
-  background: #e7e5e5;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  width: 220px;
-  transition: transform 0.3s ease-in-out;
-  border-left: 10px solid #FFCC00;
-}
-
-.summary-card:hover {
-  transform: scale(1.1);
-}
-
-.summary-card h2 {
-  color: #333;
-  font-size: 22px;
-  margin: 0;
-}
-
-/* 📋 Lista de Proyectos */
-.projects-list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  align-items: center;
+.nav-closed {
+  margin-left: 0;
   width: 100%;
 }
 
-/* 🔹 Tarjetas de Proyecto */
-.project-card {
-  background: #FFF;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
-  border-left: 10px solid #FFCC00;
-  width: 250px;
-}
-
-.project-card:hover {
-  transform: scale(1.08);
-}
-
-/* 📱 Diseño Responsivo */
-@media (max-width: 768px) {
-  .projects-summary {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .add-project {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .add-project input {
-    width: 90%;
-  }
-
-  .projects-list {
-    flex-direction: column;
-  }
-}
-
-/* 📂 Slide Navbar Mejorado */
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
   left: -260px;
   width: 260px;
   height: 100%;
-  background: #222;
-  color: #FFCC00;
+  background: #1f1f1f;
+  color: #ffcc00;
   padding: 20px;
   transition: left 0.3s ease-in-out;
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.3);
@@ -160,7 +48,6 @@
 
 .sidebar ul {
   list-style: none;
-  padding: 0;
 }
 
 .sidebar ul li {
@@ -171,17 +58,16 @@
 }
 
 .sidebar ul li:hover {
-  background: #FFCC00;
+  background: #ffcc00;
   color: #222;
 }
 
-/* 🎛 Botón para abrir el menú */
 .menu-btn {
   position: fixed;
   top: 20px;
   left: 20px;
   background: #222;
-  color: #FFCC00;
+  color: #ffcc00;
   border: none;
   padding: 12px 18px;
   font-size: 22px;
@@ -191,6 +77,82 @@
 }
 
 .menu-btn:hover {
-  background: #FFCC00;
+  background: #ffcc00;
   color: #222;
+}
+
+.dashboard-container {
+  flex-grow: 1;
+  background-color: #ffcc00;
+  padding: 40px;
+  text-align: center;
+}
+
+.add-project h1 {
+  padding-bottom: 250px;
+}
+
+/* Resumen de proyectos con más separación */
+.primer-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Más separación */
+  margin-bottom: 20px;
+  padding-left: 150px;
+}
+
+.summary-card {
+  background: #e7e5e5;
+  padding: 19px;
+  border-radius: 10px;
+  width: 160px;
+  text-align: center;
+  border-left: 5px solid #222;
+}
+
+.summary-card-spacer {
+  width: 60px; /* Espaciador entre tarjetas */
+}
+
+.completed {
+  border-left-color: green;
+}
+
+.progress {
+  border-left-color: red;
+}
+
+/* Lista de proyectos 
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding-left: 70px;
+}
+  */
+
+.project-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  border-left: 5px solid #222;
+  text-align: center;
+}
+
+.btn-complete {
+  background: green;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.btn-delete {
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

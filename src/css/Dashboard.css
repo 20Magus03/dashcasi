@@ -14,7 +14,7 @@
   background-color: var(--background-color);
   font-family: 'Arial', sans-serif;
   overflow: hidden;
-}
+}   
 
 .sidebar {
   width: 250px; /* Ajustado para que no ocupe tanto espacio */
