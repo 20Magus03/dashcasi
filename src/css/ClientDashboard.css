@@ -92,6 +92,13 @@ body {
   padding-bottom: 250px;
 }
 
+.NombreProyecto{
+  border-color: black;
+  width: 250px;
+  padding: 10px;
+  border-radius: 14px;
+}
+
 /* Resumen de proyectos con más separación */
 .primer-summary {
   display: flex;
@@ -99,7 +106,7 @@ body {
   align-items: center;
   gap: 40px; /* Más separación */
   margin-bottom: 20px;
-  padding-left: 150px;
+  padding-left: 90px;
 }
 
 .summary-card {
@@ -117,21 +124,21 @@ body {
 
 .completed {
   border-left-color: green;
+  width: 300px;
 }
 
 .progress {
   border-left-color: red;
+  width: 300px;
 }
 
-/* Lista de proyectos 
 .projects-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  padding-left: 70px;
+  padding-left: 48px;
 }
-  */
 
 .project-card {
   background: white;
@@ -155,4 +162,37 @@ body {
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
+}
+
+.btn-add {
+  background: blue;
+  color: white;
+  padding: 8px 10px;
+  margin-right: 5px;
+  border-radius: 14px;
+}
+
+.add-proyecto{
+  padding: 40px;
+  border-radius: 30px;
+  background: white;
+  border-left: 5px solid #222;
+  text-align: center;
+}
+ .logo{
+  width: 58%;
+  padding-bottom: 94px;
+ }
+
+ .logout-btn {
+  background-color: var(--error-color);
+  color: var(--text-color);
+  padding: 10px;
+  margin-bottom: auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  text-align: center;
 }

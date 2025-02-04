@@ -72,7 +72,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <h1 style={{ color: 'black' }}>Mr. Magus</h1>
+        <img className='logo' src="../IMG/LOGO.png" alt="Logo" />
         <h2 style={{ color: 'black' }}>Dashboard</h2>
         <ul>
           <li>
@@ -97,7 +97,7 @@ const Dashboard = () => {
             )}
           </li>
         </ul>
-        <Link to="/" className="logout-btn">Cerrar Sesión</Link>
+        <Link to="/login" className="logout-btn">Cerrar Sesión</Link>
       </div>
 
       <div className="main-content">

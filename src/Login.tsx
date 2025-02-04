@@ -21,25 +21,25 @@ const Login = () => {
   return (
     <div className="container">
       <div className="form-box">
-        <h1>Mr. Magus</h1>
+        <img className='logo' src="../IMG/LOGO.png" alt="Logo" />
         <h2 className="title">INICIO DE SESIÓN</h2>
         <form onSubmit={handleLogin}>
           <div className="input-group">
-            <input 
-              type="text" 
-              placeholder="Introduce el correo" 
-              className="input" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
+            <input
+              type="text"
+              placeholder="Introduce el correo"
+              className="input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="input-group">
-            <input 
-              type="password" 
-              placeholder="Introduce la contraseña" 
-              className="input" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
+            <input
+              type="password"
+              placeholder="Introduce la contraseña"
+              className="input"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button type="submit" className="btn">Iniciar Sesión</button>

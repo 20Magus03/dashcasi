@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './css/ClientDashboard.css';
+import { Link } from 'react-router-dom';
 
 interface Project {
   id: number;
@@ -47,59 +48,60 @@ const ClientDashboard: React.FC = () => {
         <button className="close-btn" onClick={() => setIsNavOpen(false)}>✖</button>
         <h2>Menú</h2>
         <ul>
-          <li>🏠 Inicio</li>
-          <li>📂 Mis Proyectos</li>
-          <li>⚙ Configuración</li>
-          <li>🚪 Salir</li>
+          <li> Inicio</li>
+          <li> Mis Proyectos</li>
         </ul>
-      </div>
-      {/* Botón de menú */}
-      <button className="menu-btn" onClick={() => setIsNavOpen(!isNavOpen)}>☰</button>
-      {/* Contenido del Dashboard */}
-      <div className="dashboard-container">
+        <div><Link to='/login' className='logout-btn'>Cerar Sesión</Link></div>
+    </div>
+      {/* Botón de menú */ }
+  <button className="menu-btn" onClick={() => setIsNavOpen(!isNavOpen)}>☰</button>
+  {/* Contenido del Dashboard */ }
+  <div className="dashboard-container">
 
-        <div className="add-project">
-          <div className='titulo'><h1>📊 Dashboard de Proyectos</h1></div>
-          <input
-            type="text"
-            placeholder="Nombre del Proyecto"
-            value={projectName}
-            onChange={(e) => setProjectName(e.target.value)}
-          />
-          <button onClick={addProject} className="btn-add">➕ Agregar</button>
-        </div>
-
-        {/* Resumen de proyectos con más separación */}
-        <div className="projects-summary">
-          <div className='primer-summary'>
-            <div className="summary-card completed">
-              <h2>✅ Completados</h2>
-              <h3>{completedProjects}</h3>
-            </div>
-            <div className="summary-card-spacer"></div>
-            <div className="summary-card progress">
-              <h2>🚀 En Progreso</h2>
-              <h3>{projects.length - completedProjects}</h3>
-            </div>
-          </div>
-          <div className="projects-list">
-            {projects.map((project) => (
-              <div key={project.id} className="project-card">
-                <h3>{project.name}</h3>
-                <p>Status: <strong>{project.status}</strong></p>
-                <div className="project-actions">
-                  {project.status === 'En progreso' && (
-                    <button onClick={() => completeProject(project.id)} className="btn-complete">✔ Completar</button>
-                  )}
-                  <button onClick={() => deleteProject(project.id)} className="btn-delete">🗑 Eliminar</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
+    <div className="add-project">
+      <div className='titulo'><img className='logo' src="../IMG/LOGO.png" alt="Logo" /></div>
+      <div className='add-proyecto'>
+        <input className='NombreProyecto'
+          type="text"
+          placeholder="Nombre del Proyecto"
+          value={projectName}
+          onChange={(e) => setProjectName(e.target.value)}
+        />
+        <button onClick={addProject} className="btn-add">➕ Agregar</button>
       </div>
     </div>
+
+    {/* Resumen de proyectos con más separación */}
+    <div className="projects-summary">
+      <div className='primer-summary'>
+        <div className="summary-card completed">
+          <h2>✅ Completados</h2>
+          <h3>{completedProjects}</h3>
+        </div>
+        <div className="summary-card-spacer"></div>
+        <div className="summary-card progress">
+          <h2>🚀 En Progreso</h2>
+          <h3>{projects.length - completedProjects}</h3>
+        </div>
+      </div>
+      <div className="projects-list">
+        {projects.map((project) => (
+          <div key={project.id} className="project-card">
+            <h3>{project.name}</h3>
+            <p>Status: <strong>{project.status}</strong></p>
+            <div className="project-actions">
+              {project.status === 'En progreso' && (
+                <button onClick={() => completeProject(project.id)} className="btn-complete">✔ Completar</button>
+              )}
+              <button onClick={() => deleteProject(project.id)} className="btn-delete">🗑 Eliminar</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+    </div >
   );
 };
 

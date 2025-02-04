@@ -6,7 +6,7 @@ const Registro = () => {
   return (
     <div className="container">
       <div className="form-box">
-        <h1>Mr. Magus</h1>
+        <img className='logo' src="../IMG/LOGO.png" alt="Logo" />
         <h2 className="title">Registro</h2>
         <form>
           <div className="input-group">
