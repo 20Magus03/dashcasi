@@ -21,7 +21,7 @@ const Login = () => {
   return (
     <div className="container">
       <div className="form-box">
-        <img className='logo' src="../IMG/LOGO.png" alt="Logo" />
+        <img className='logo' style={{width:'140px'}} src="../IMG/LOGO.png" alt="Logo" />
         <h2 className="title">INICIO DE SESIÓN</h2>
         <form onSubmit={handleLogin}>
           <div className="input-group">

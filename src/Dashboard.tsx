@@ -72,8 +72,8 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <img className='logo' src="../IMG/LOGO.png" alt="Logo" />
-        <h2 style={{ color: 'black' }}>Dashboard</h2>
+      <img className='logo' style={{width:'140px'}} src="../IMG/LOGO.png" alt="Logo" />
+        <h2 style={{ color: 'white' }}>Dashboard</h2>
         <ul>
           <li>
             <span className="icon"></span>
