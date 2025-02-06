@@ -1,53 +1,50 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./css/token.css"; 
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const TokenInput: React.FC = () => {
-  const [token, setToken] = useState("");
-  const [error, setError] = useState<string | null>(null);
+const TokenInput = () => {
   const navigate = useNavigate();
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.replace(/\D/g, ""); 
-    setToken(value);
-  };
+  const [token, setToken] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async () => {
+    const email = localStorage.getItem('email');
+
+    if (!email) {
+      setError('No se encontró el email del usuario');
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:5000/api/verify-token", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token }),
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/verify-2fa`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, token }),
       });
 
       const data = await response.json();
 
-      if (response.ok && data.valid) {
+      if (response.ok && data.isValid) {
+        navigate('/dashboard'); // Redirige al Dashboard si el token es válido
       } else {
-        setError("Token incorrecto");
+        setError('Token incorrecto');
       }
     } catch (error) {
-      setError("Error de conexión con el servidor");
+      setError('Error de conexión con el servidor');
     }
   };
 
   return (
     <div className="token-container">
-      <div className="token-box">
-        <h2 className="token-title">Ingresa un código</h2>
-        <input
-          type="text"
-          className="token-input"
-          placeholder="123456"
-          value={token}
-          onChange={handleChange}
-          maxLength={6}
-        />
-        <Link to="/ClientDashboard" className="boton">
-          Verificar
-        </Link>
-      </div>
-
+      <h2>Ingrese el código de autenticación</h2>
+      {error && <p className="error">{error}</p>}
+      <input
+        type="text"
+        placeholder="123456"
+        value={token}
+        onChange={(e) => setToken(e.target.value)}
+        maxLength={6}
+      />
+      <button onClick={handleSubmit}>Verificar</button>
     </div>
   );
 };

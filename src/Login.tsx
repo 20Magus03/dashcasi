@@ -1,55 +1,42 @@
-import { Link, useNavigate } from 'react-router-dom';
-import '../src/css/Formulario.css';
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const Login = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Verify2FA: React.FC = () => {
+  const [username, setUsername] = useState<string>('');
+  const [token, setToken] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault(); // Evita que la página se recargue
+  const handleVerify2FA = async () => {
+    try {
+      const response = await axios.post('http://localhost:3001/auth/verify-2fa', {
+        username,
+        token,
+      });
 
-    // Verificar credenciales
-    if (email === 'admin' && password === '123456') {
-      navigate('/dashboard'); // Redirigir al Dashboard
-    } else {
-      navigate('/Touken'); // Redirigir a la página de Token
+      setMessage(response.data.message);
+    } catch (error) {
+      setMessage('Error al verificar el código 2FA');
     }
   };
 
   return (
-    <div className="container">
-      <div className="form-box">
-        <img className='logo' style={{width:'140px'}} src="../IMG/LOGO.png" alt="Logo" />
-        <h2 className="title">INICIO DE SESIÓN</h2>
-        <form onSubmit={handleLogin}>
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Introduce el correo"
-              className="input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="input-group">
-            <input
-              type="password"
-              placeholder="Introduce la contraseña"
-              className="input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn">Iniciar Sesión</button>
-        </form>
-        <p className="text">
-          ¿No tienes una cuenta? <Link to="/" className="link">Crea una</Link>
-        </p>
-      </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Nombre de usuario"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Código 2FA"
+        value={token}
+        onChange={(e) => setToken(e.target.value)}
+      />
+      <button onClick={handleVerify2FA}>Verificar 2FA</button>
+      <p>{message}</p>
     </div>
   );
 };
 
-export default Login;
+export default Verify2FA;
